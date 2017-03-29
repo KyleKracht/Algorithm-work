@@ -1,0 +1,28 @@
+#Identify positive numbers who's prime factors are only 2,3, and 5. These are called ugly numbers.
+
+class Solution(object):
+    def isUgly(self, num):
+        x=float(num)
+#Negative numbers are not "ugly" so automatically we can return false       
+        if x<0:
+            return False
+        else:
+#Since multiplication is commutative, we can check for factors in any order
+            while x>=1:
+                if x==1:
+#according to the problem, 1 is a special case, and is considered "ugly". Each block in turn divides out all prime 
+#factors by checking if the number is further divisible by 2,3, or 5
+                    return True
+                else:
+                    if (x/2)%1==0:
+                        while (x/2)%1==0:
+                            x=x/2
+                    elif (x/3)%1==0:
+                        while (x/3)%1==0:
+                            x=x/3
+                    elif (x/5)%1==0:
+                        while (x/5)%1==0:
+                            x=x/5
+                    else:
+                        break
+            return False
